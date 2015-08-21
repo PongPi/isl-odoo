@@ -1,0 +1,11 @@
+#database manager
+database: isl_odoo
+password: 123456
+Link: http://127.0.0.1:8069/web/database/manager#action=database_manager
+
+#web
+Email: admin
+pass: 123456
+Link: http://127.0.0.1:8069/web?#view_type=kanban&model=ir.module.module&action=37
+
+main password: admin
