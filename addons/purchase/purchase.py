@@ -747,7 +747,7 @@ class purchase_order(osv.osv):
             price_unit = self.pool.get('res.currency').compute(cr, uid, order.currency_id.id, order.company_id.currency_id.id, price_unit, round=False, context=context)
         res = []
         if order.location_id.usage == 'customer':
-            name = order_line.product_id.name
+            name = order_line.product_id.with_context(dict(context or {}, lang=order.dest_address_id.lang)).name
         else:
             name = order_line.name or ''
         move_template = {
@@ -1224,6 +1224,7 @@ class purchase_order_line(osv.osv):
         taxes = account_tax.browse(cr, uid, map(lambda x: x.id, product.supplier_taxes_id))
         fpos = fiscal_position_id and account_fiscal_position.browse(cr, uid, fiscal_position_id, context=context) or False
         taxes_ids = account_fiscal_position.map_tax(cr, uid, fpos, taxes)
+        price = self.pool['account.tax']._fix_tax_included_price(cr, uid, price, product.supplier_taxes_id, taxes_ids)
         res['value'].update({'price_unit': price, 'taxes_id': taxes_ids})
 
         return res
