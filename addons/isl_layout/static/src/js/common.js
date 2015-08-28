@@ -1,0 +1,1 @@
+console.log('common isl_layout_assets_frontend');

@@ -18,5 +18,16 @@
         <!--     </t> -->
         <!--   </dl> -->
         <!-- </template> -->
+        <template id="isl_layout_assets_frontend" inherit_id="web.assets_common">
+          <xpath expr="." position="inside">
+              <script type="text/javascript" src="/isl_layout/static/src/js/common.js"></script>
+          </xpath>
+        </template>
+        <template id="isl_layout_assets_backend" name="isl_layout assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/isl_layout/static/src/css/common.css"/>
+                <!-- <script type="text/javascript" src="/auth_openid/static/src/js/auth_openid.js"></script> -->
+            </xpath>
+        </template>
     </data>
 </openerp>
