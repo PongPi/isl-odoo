@@ -25,7 +25,7 @@
         </template>
         <template id="isl_layout_assets_backend" name="isl_layout assets" inherit_id="web.assets_backend">
             <xpath expr="." position="inside">
-                <link rel="stylesheet" href="/isl_layout/static/src/css/common.css"/>
+                <link rel="stylesheet" href="/isl_layout/static/src/css/flatify.css"/>
                 <!-- <script type="text/javascript" src="/auth_openid/static/src/js/auth_openid.js"></script> -->
             </xpath>
         </template>
